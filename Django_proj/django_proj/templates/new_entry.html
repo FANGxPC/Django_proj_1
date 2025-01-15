@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<p>
+    <a href="{% url 'django_proj:topic' topic.id %}">{{topic}}</a> 
+</p>
+
+<p> Add a new entry: </p>
+ 
+<form action="{%url 'django_proj:new_entry' topic.id %}" method="post"> <!-- redirect it to url->new_entry -->
+    {%csrf_token%}
+    {{form.as_p}}
+    <button name="submit">AAdd topic</button>
+</form>
+
+
+
+
+
+{% endblock content %}

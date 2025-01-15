@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%block content%}
+
+<p>
+    Topics
+</p>
+
+<ul>
+    {% for x in topics %}
+    <li>
+        <a href="{%url 'django_proj:topic' x.id%}">{{x}}</a>
+    </li>
+    {% empty %}
+    <li>No topics yet.</li>
+    {% endfor %}
+</ul>
+<a href="{%url 'django_proj:new_topic'%}">Add a new topic</a>
+
+{% endblock content %}
